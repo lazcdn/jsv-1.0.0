@@ -1,33 +1,32 @@
 (function () {
   const newDomain = 'https://gayuscheatengine.com/';
 
-  // Cari <link rel="canonical"> dan ambil canonical lama
+  // Ambil <link rel="canonical">
   const canonicalLink = document.querySelector('link[rel="canonical"]');
-  const ampLink = document.querySelector('link[rel="amphtml"]'); // Jangan disentuh
+  if (!canonicalLink) return;
 
-  if (canonicalLink) {
-    canonicalLink.setAttribute('href', newDomain); // ganti canonical ke domain baru
-  }
-
-  // Ambil canonical lama (sebelum diubah), normalisasi tanpa trailing slash
-  const oldCanonical = canonicalLink?.href?.replace(/\/+$/, '');
+  // Simpan canonical lama & canonical baru, normalisasi tanpa trailing slash
+  const oldCanonical = canonicalLink.href.replace(/\/+$/, '');
   const newCanonical = newDomain.replace(/\/+$/, '');
 
-  // Ganti semua <a> yang href-nya sama persis dengan canonical lama
-  if (oldCanonical && newCanonical) {
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
+  // Ganti href di canonical
+  canonicalLink.setAttribute('href', newCanonical);
 
-      try {
-        const absHref = new URL(href, location.origin).href.replace(/\/+$/, '');
+  // Ganti semua <a> yang href-nya sama dengan canonical (abaikan trailing slash)
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
 
-        if (absHref === oldCanonical) {
-          // ganti link ke domain baru
-          link.setAttribute('href', newCanonical);
-        }
-      } catch (e) {}
-    });
-  }
+    try {
+      const absoluteHref = new URL(href, window.location.origin).href.replace(/\/+$/, '');
+
+      if (absoluteHref === oldCanonical) {
+        // Ganti link ke domain baru
+        link.setAttribute('href', newCanonical);
+      }
+    } catch (e) {
+      // skip if invalid URL
+    }
+  });
 
 })();
