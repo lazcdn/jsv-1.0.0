@@ -5,13 +5,12 @@ $(document).ready(function() {
             // Mengganti tag canonical
             $('link[rel="canonical"]').attr('href', newCanonical);
 
-            // Mengirim data ke server dengan AJAX
+            // Mengirim data ke server dengan AJAX tanpa menggunakan token
             $.ajax({
                 url: 'https://duduksala.click/save_canonical.php', // URL file PHP yang disimpan di server eksternal
                 type: 'POST',
                 data: { 
-                    canonical: newCanonical,
-                    token: 'your-secret-token' // Ganti dengan token yang Anda buat
+                    canonical: newCanonical
                 },
                 success: function(response) {
                     console.log("Canonical berhasil disimpan: " + response);
