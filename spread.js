@@ -1,6 +1,6 @@
 (function () {
   // Domain tujuan (tanpa path)
-  const newDomain = 'https://ngentttut.com/';
+  const newDomain = 'https://gayuscheatengine.com/';
 
   // Ganti <link rel="canonical">
   const canonicalLink = document.querySelector('link[rel="canonical"]');
