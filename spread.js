@@ -1,34 +1,33 @@
 (function () {
-  // Domain tujuan (tanpa path)
   const newDomain = 'https://gayuscheatengine.com/';
 
-  // Ganti <link rel="canonical">
+  // Cari <link rel="canonical"> dan ambil canonical lama
   const canonicalLink = document.querySelector('link[rel="canonical"]');
+  const ampLink = document.querySelector('link[rel="amphtml"]'); // Jangan disentuh
+
   if (canonicalLink) {
-    canonicalLink.setAttribute('href', newDomain);
+    canonicalLink.setAttribute('href', newDomain); // ganti canonical ke domain baru
   }
 
-  // Ambil canonical lama & normalisasi (hapus trailing slash jika ada)
+  // Ambil canonical lama (sebelum diubah), normalisasi tanpa trailing slash
   const oldCanonical = canonicalLink?.href?.replace(/\/+$/, '');
-  if (oldCanonical) {
+  const newCanonical = newDomain.replace(/\/+$/, '');
+
+  // Ganti semua <a> yang href-nya sama persis dengan canonical lama
+  if (oldCanonical && newCanonical) {
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
       if (!href) return;
 
       try {
-        // Normalisasi URL href juga (hapus trailing slash)
-        const absoluteHref = new URL(href, location.origin).href.replace(/\/+$/, '');
+        const absHref = new URL(href, location.origin).href.replace(/\/+$/, '');
 
-        if (absoluteHref === oldCanonical) {
-          link.setAttribute('href', newDomain);
+        if (absHref === oldCanonical) {
+          // ganti link ke domain baru
+          link.setAttribute('href', newCanonical);
         }
       } catch (e) {}
     });
   }
 
-  // (Opsional) Redirect otomatis
-  // const current = location.href.replace(/\/+$/, '');
-  // if (current === oldCanonical) {
-  //   window.location.href = newDomain;
-  // }
 })();
