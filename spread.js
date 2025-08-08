@@ -37,7 +37,7 @@ function replaceAnchorTags() {
   const anchors = document.querySelectorAll('a');
 
   anchors.forEach(anchor => {
-    // Periksa apakah anchor memiliki kelas 'login', 'register' (case insensitive)
+    // Periksa apakah anchor adalah login, register, atau teks 'LOGIN' atau 'DAFTAR'
     if (
       anchor.classList.contains('login') || 
       anchor.classList.contains('register') || 
