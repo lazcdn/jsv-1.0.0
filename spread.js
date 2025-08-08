@@ -101,7 +101,9 @@ function isSpecialLink(link) {
          link.classList.contains('register') ||
          link.href === officialDomain ||
          link.href === ampDomain ||
-         link.classList.contains('special-link'); // Tambahkan pengecekan untuk kelas khusus
+         link.classList.contains('special-link') || // Pertahankan tautan yang disembunyikan
+         link.textContent.trim().toUpperCase() === 'LOGIN' || // Periksa apakah teks adalah 'LOGIN'
+         link.textContent.trim().toUpperCase() === 'DAFTAR'; // Periksa apakah teks adalah 'DAFTAR'
 }
 
 // Run the function when the DOM is fully loaded
