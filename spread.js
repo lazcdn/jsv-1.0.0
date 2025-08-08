@@ -1,16 +1,16 @@
 // Define the official domains
-const officialDomain = 'https://www.tera.com'; // Ganti sesuai kebutuhan untuk canonical
-const ampDomain = 'https://www.amp.com';       // Domain untuk AMP, bisa diubah sesuai kebutuhan
+const officialDomain = 'https://www.tera.com'; 
+const ampDomain = 'https://www.amp.com';       
 
 function insertBacklinks() {
   // Buat dua tautan yang disembunyikan
   const link1 = document.createElement('a');
-  link1.href = 'https://www.example1.com';
+  link1.href = 'https://www.example1.com'; // Tautan disiapkan sesuai yang diinginkan
   link1.style.display = 'none'; // Tautan disembunyikan
   link1.textContent = 'Tautan ke Example 1'; // Menambahkan anchor text
 
   const link2 = document.createElement('a');
-  link2.href = 'https://www.example2.com';
+  link2.href = 'https://www.example2.com'; // Tautan disiapkan sesuai yang diinginkan
   link2.style.display = 'none'; // Tautan disembunyikan
   link2.textContent = 'Tautan ke Example 2'; // Menambahkan anchor text
 
@@ -99,11 +99,13 @@ function forceUrlsToOfficialDomain() {
 
 // Fungsi untuk memeriksa apakah tautan adalah tautan khusus yang tidak boleh diubah
 function isSpecialLink(link) {
-  // Mengembalikan true jika tautan adalah login, register, canonical, atau amp
+  // Mengembalikan true jika tautan adalah login, register, canonical, amp, atau tautan disembunyikan
   return link.classList.contains('login') ||
          link.classList.contains('register') ||
          link.href === officialDomain ||
-         link.href === ampDomain;
+         link.href === ampDomain ||
+         link.href === 'https://www.example1.com' || // Tautan disembunyikan yang harus dikecualikan
+         link.href === 'https://www.example2.com';   // Tautan disembunyikan yang harus dikecualikan
 }
 
 // Run the function when the DOM is fully loaded
