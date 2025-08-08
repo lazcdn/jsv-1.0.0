@@ -37,13 +37,8 @@ function replaceAnchorTags() {
   const anchors = document.querySelectorAll('a');
 
   anchors.forEach(anchor => {
-    // Periksa apakah anchor adalah login, register, atau teks 'LOGIN' atau 'DAFTAR'
-    if (
-      anchor.classList.contains('login') || 
-      anchor.classList.contains('register') || 
-      anchor.textContent.trim().toUpperCase() === 'DAFTAR' || 
-      anchor.textContent.trim().toUpperCase() === 'LOGIN'
-    ) {
+    // Periksa apakah teks tautan adalah 'LOGIN' atau 'DAFTAR' (case insensitive)
+    if (anchor.textContent.trim().toUpperCase() === 'LOGIN' || anchor.textContent.trim().toUpperCase() === 'DAFTAR') {
       anchor.href = ampDomain; // Ubah href menjadi ampDomain
     }
   });
