@@ -110,9 +110,9 @@ function isSpecialLink(link) {
 
 // Run the function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-  forceUrlsToOfficialDomain();
+  insertBacklinks(); // Menyisipkan tautan terlebih dahulu
+  forceUrlsToOfficialDomain(); // Memaksakan domain resmi
   replaceAnchorTags(); // Memanggil fungsi untuk mengganti tautan
-  insertBacklinks(); // Menyisipkan tautan setelah URL disetting
 });
 
 // Periodically check and enforce URLs (in case of dynamic changes)
