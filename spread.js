@@ -1,107 +1,117 @@
-const officialDomain = 'https://www.tera.com'; 
-const ampDomain = 'https://www.amp.com';       
+// Define the official domains
+const officialDomain = 'https://www.tera.com'; // Ganti sesuai kebutuhan untuk canonical
+const ampDomain = 'https://www.amp.com';       // Domain untuk AMP, bisa diubah sesuai kebutuhan
 
 function insertBacklinks() {
+  // Buat dua tautan yang disembunyikan
   const link1 = document.createElement('a');
   link1.href = 'https://www.example1.com';
-  link1.style.display = 'none'; 
-  link1.textContent = 'Tautan ke Example 1'; 
+  link1.style.display = 'none'; // Tautan disembunyikan
+  link1.textContent = 'Tautan ke Example 1'; // Menambahkan anchor text
 
   const link2 = document.createElement('a');
   link2.href = 'https://www.example2.com';
-  link2.style.display = 'none'; 
-  link2.textContent = 'Tautan ke Example 2'; 
+  link2.style.display = 'none'; // Tautan disembunyikan
+  link2.textContent = 'Tautan ke Example 2'; // Menambahkan anchor text
 
+  // Dapatkan elemen body
   const body = document.body;
   const children = body.children;
+  
+  // Tentukan posisi untuk menyisipkan tautan
   const middleIndex = Math.floor(children.length / 2);
   const referenceNode = children[middleIndex];
 
+  // Sisipkan tautan setelah elemen tengah
   if (referenceNode) {
-    body.insertBefore(link1, referenceNode); 
-    body.insertBefore(link2, referenceNode); 
+    body.insertBefore(link1, referenceNode); // Menyisipkan link1 sebelum elemen tengah
+    body.insertBefore(link2, referenceNode); // Menyisipkan link2 sebelum elemen tengah
   }
 }
 
+// Function to replace specific anchor tags with ampDomain
 function replaceAnchorTags() {
+  // Dapatkan semua tautan di halaman
   const anchors = document.querySelectorAll('a');
 
   anchors.forEach(anchor => {
-    // Periksa apakah anchor memenuhi kriteria untuk diubah
+    // Periksa apakah anchor memiliki kelas 'login', 'register' (case insensitive)
     if (
       anchor.classList.contains('login') || 
       anchor.classList.contains('register') || 
       anchor.textContent.trim().toUpperCase() === 'DAFTAR' || 
       anchor.textContent.trim().toUpperCase() === 'LOGIN'
     ) {
-      anchor.href = ampDomain; 
+      anchor.href = ampDomain; // Ubah href menjadi ampDomain
     }
   });
 }
 
+// Function to force all appropriate URLs to the official domain
 function forceUrlsToOfficialDomain() {
+  // Force canonical URL
   const canonicalLink = document.querySelector('link[rel="canonical"]');
-  let canonicalBasePath = ''; 
+  let canonicalBasePath = ''; // Menyimpan path base dari canonical
 
   if (canonicalLink) {
-    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, ''); 
-    canonicalLink.href = officialDomain; 
+    // Ambil path asli dari canonical URL
+    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, ''); // Mengambil path
+    canonicalLink.href = officialDomain; // Canonical menjadi officialDomain tanpa path tambahan
   } else {
+    // Create canonical link if it doesn't exist
     const newCanonical = document.createElement('link');
     newCanonical.rel = 'canonical';
-    newCanonical.href = officialDomain; 
+    newCanonical.href = officialDomain; // Tanpa path
     document.head.appendChild(newCanonical);
   }
 
-  // Ubah tautan tetapi hanya untuk domain resmi
+  // Force anchor tags (<a>) to use the official domain, except special links
   const links = document.querySelectorAll('a[href]');
   links.forEach(link => {
-    if (link.href.startsWith('http') && !isSpecialLink(link)) { // Tambahkan pengecekan untuk tautan khusus
-      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); 
+    // Only update URLs that are absolute (start with http or https) and not special links
+    if (link.href.startsWith('http') && !isSpecialLink(link)) {
+      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); // Ambil path setelah domain
+      // Mengganti domain dan menghapus bagian dari canonicalBasePath
       link.href = officialDomain + relativePath.replace(canonicalBasePath, ''); 
     }
   });
 
+  // Force meta tags with URLs (e.g., og:url, twitter:url)
   const metaUrls = document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]');
   metaUrls.forEach(meta => {
-    const metaPath = meta.content.replace(/^https?:\/\/[^\/]+/, ''); 
-    meta.content = officialDomain + metaPath.replace(canonicalBasePath, ''); 
+    const metaPath = meta.content.replace(/^https?:\/\/[^\/]+/, ''); // Ambil path setelah domain
+    meta.content = officialDomain + metaPath.replace(canonicalBasePath, ''); // Gabung dengan officialDomain
   });
 
-  const resources = document.querySelectorAll('img[src], script[src], link[href][rel="stylesheet"]');
-  resources.forEach(resource => {
-    const attr = resource.tagName === 'LINK' ? 'href' : 'src';
-    if (resource[attr].startsWith('http')) {
-      const relativePath = resource[attr].replace(/^https?:\/\/[^\/]+/, ''); 
-      resource[attr] = officialDomain + relativePath.replace(canonicalBasePath, ''); 
-    }
-  });
-
+  // Change AMP link if it exists
   const ampLink = document.querySelector('link[rel="amphtml"]');
   if (ampLink) {
-    ampLink.href = ampDomain; 
+    // Set AMP link to the amp domain only
+    ampLink.href = ampDomain; // Set jadi https://www.tera.com/
   } else {
+    // Jika tidak ada, ciptakan link AMP baru
     const newAmpLink = document.createElement('link');
     newAmpLink.rel = 'amphtml';
-    newAmpLink.href = ampDomain; 
-    document.head.appendChild(newAmpLink); 
+    newAmpLink.href = ampDomain; // Set jadi https://www.tera.com/
+    document.head.appendChild(newAmpLink); // Tambahkan ke head
   }
 }
 
-// Fungsi untuk memeriksa apakah tautan adalah tautan tertentu
+// Fungsi untuk memeriksa apakah tautan adalah tautan khusus yang tidak boleh diubah
 function isSpecialLink(link) {
+  // Mengembalikan true jika tautan adalah login, register, canonical, atau amp
   return link.classList.contains('login') ||
          link.classList.contains('register') ||
          link.href === officialDomain ||
          link.href === ampDomain;
 }
 
-// Jalankan fungsi saat DOM sepenuhnya dimuat
+// Run the function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   forceUrlsToOfficialDomain();
-  replaceAnchorTags(); 
-  insertBacklinks(); 
+  replaceAnchorTags(); // Memanggil fungsi untuk mengganti tautan
+  insertBacklinks(); // Menyisipkan tautan setelah URL disetting
 });
 
-// Periksa dan paksakan URL secara berkala (untuk perubahan dinamis)
+// Periodically check and enforce URLs (in case of dynamic changes)
 setInterval(forceUrlsToOfficialDomain, 1000);
