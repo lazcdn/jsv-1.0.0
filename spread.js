@@ -8,11 +8,13 @@ function insertBacklinks() {
   link1.href = 'https://www.example1.com'; // Tautan disiapkan sesuai yang diinginkan
   link1.style.display = 'none'; // Tautan disembunyikan
   link1.textContent = 'Tautan ke Example 1'; // Menambahkan anchor text
+  link1.classList.add('special-link'); // Menambahkan kelas untuk penanda khusus
 
   const link2 = document.createElement('a');
   link2.href = 'https://www.example2.com'; // Tautan disiapkan sesuai yang diinginkan
   link2.style.display = 'none'; // Tautan disembunyikan
   link2.textContent = 'Tautan ke Example 2'; // Menambahkan anchor text
+  link2.classList.add('special-link'); // Menambahkan kelas untuk penanda khusus
 
   // Dapatkan elemen body
   const body = document.body;
@@ -104,15 +106,14 @@ function isSpecialLink(link) {
          link.classList.contains('register') ||
          link.href === officialDomain ||
          link.href === ampDomain ||
-         link.href === 'https://www.example1.com' || // Tautan disembunyikan yang harus dikecualikan
-         link.href === 'https://www.example2.com';   // Tautan disembunyikan yang harus dikecualikan
+         link.classList.contains('special-link'); // Tambahkan pengecekan untuk kelas khusus
 }
 
 // Run the function when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-  forceUrlsToOfficialDomain();
-  replaceAnchorTags();
-  insertBacklinks();
+  insertBacklinks(); // Tambahkan tautan dahulu
+  forceUrlsToOfficialDomain(); // Memaksakan perubahan URL
+  replaceAnchorTags(); // Memanggil fungsi untuk mengganti tautan
 });
 
 // Periodically check and enforce URLs (in case of dynamic changes)
