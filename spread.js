@@ -18,7 +18,6 @@ function insertBacklinks() {
 
   if (referenceNode) {
     body.insertBefore(link1, referenceNode); 
-    body.insertBefore(link2, referenceNode);
   }
 }
 
