@@ -2,25 +2,6 @@
 const officialDomain = 'https://www.edgarraweats.com/lifestyle-2'; 
 const ampDomain = 'https://target4d-pay4d.pages.dev/';       
 
-function insertBacklinks() {
-  
-  const link1 = document.createElement('a');
-  link1.href = 'https://media.ihram.asia/'; 
-  link1.style.display = 'none'; 
-  link1.textContent = 'kilo303';
-  link1.classList.add('special-link'); 
-
-  const body = document.body;
-  const children = body.children;
-  
-  const middleIndex = Math.floor(children.length / 2);
-  const referenceNode = children[middleIndex];
-
-  if (referenceNode) {
-    body.insertBefore(link1, referenceNode); 
-  }
-}
-
 function replaceAnchorTags() {
   
   const anchors = document.querySelectorAll('a');
@@ -94,7 +75,6 @@ function isSpecialLink(link) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  insertBacklinks(); 
   forceUrlsToOfficialDomain(); 
   replaceAnchorTags(); 
 });
