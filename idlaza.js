@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://www.edgarraweats.com/'; 
-const ampDomain = 'https://target4d-gacorr.pages.dev/';       
+const ampDomain = 'https://target4d-seo.pages.dev/';       
 
 function replaceAnchorTags() {
   
