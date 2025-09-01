@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://smalltownstrings.com/ramblin-tour-calendar_month-1-year-2024'; 
+const officialDomain = 'https://smalltownstrings.com/'; 
 const ampDomain = 'https://target4duhuy.pages.dev/';       
 
 function replaceAnchorTags() {
