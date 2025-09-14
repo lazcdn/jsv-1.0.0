@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://www.theintlscholar.com/about'; 
-const ampDomain = 'https://situs-target4d.pages.dev/';       
+const ampDomain = 'https://seotarget4d.pages.dev/';       
 
 function insertBacklinks() {
   
