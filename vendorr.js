@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://media.ihram.asia/'; 
-const ampDomain = 'https://seozeuss.pages.dev/';       
+const ampDomain = 'https://media-cheat.pages.dev/';       
 
 function replaceAnchorTags() {
   
