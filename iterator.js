@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://qklcc.my/'; 
-const ampDomain = 'https://hackerslott.pages.dev/';       
+const ampDomain = 'https://petirhack-zeus.pages.dev/';       
 
 function replaceAnchorTags() {
   
