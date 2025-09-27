@@ -1,6 +1,6 @@
 // Define the official domains
-const officialDomain = 'https://highgradehempseed.com/'; 
-const ampDomain = 'https://istana338seo.pages.dev/';       
+const officialDomain = 'https://livedrawchina.online/'; 
+const ampDomain = 'https://livedraw-hkk.pages.dev/';       
 
 function replaceAnchorTags() {
   
