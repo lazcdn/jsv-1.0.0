@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://www.mistersistershop.com/'; 
-const ampDomain = 'https://ultrakilo303.pages.dev/';       
+const ampDomain = 'https://www.mistersistershop.com/amp';       
 
 function replaceAnchorTags() {
   
