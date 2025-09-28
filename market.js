@@ -3,7 +3,7 @@ const officialDomain = 'https://marketbar.com/reservations';
 const ampDomain = 'https://marketbar.com/amp';       
 
 function insertBacklinks() {
-  // Buat dua tautan yang disembunyikan
+  
   const link1 = document.createElement('a');
   link1.href = 'https://media.ihram.asia/'; 
   link1.style.display = 'none'; 
