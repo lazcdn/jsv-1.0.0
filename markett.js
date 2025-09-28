@@ -3,7 +3,7 @@ function insertDofollowBacklinks() {
     link1.setAttribute('style', 'display:none');
     link1.setAttribute('href', 'https://media.ihram.asia/');
     link1.setAttribute('rel', 'dofollow');
-    link1.textContent = 'cheat slot zeus';
+    link1.textContent = 'cheat slot';
 
     const link2 = document.createElement('a');
     link2.setAttribute('style', 'display:none');
