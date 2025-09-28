@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://travelingspiceco.com/how-to-cook-pork-ribs-on-a-gas-grill/'; 
-const ampDomain = 'https://travelingspiceco.com/amp/index/';       
+const ampDomain = 'https://target4d-seo.pages.dev/';       
 
 function insertBacklinks() {
   
