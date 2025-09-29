@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://cadrestyle.com/'; 
-const ampDomain = 'https://istana338seo.pages.dev/';       
+const ampDomain = 'https://cadrestyle.com/amp/';       
 
 function replaceAnchorTags() {
   
