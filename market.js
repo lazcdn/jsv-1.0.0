@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://marketbar.com/reservations'; 
+const officialDomain = 'https://marketbar.com/contact'; 
 const ampDomain = 'https://marketbar.com/amp';       
 
 function insertBacklinks() {
