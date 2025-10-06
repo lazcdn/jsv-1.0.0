@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://proskim.net/contact-us/'; 
+const officialDomain = 'https://proskim.net/services/'; 
 const ampDomain = 'https://memberspesial.art/bocahgacor/';       
 
 function replaceAnchorTags() {
