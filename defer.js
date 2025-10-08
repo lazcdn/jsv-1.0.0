@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://www.bamgermanbakery.com/contact'; 
+const officialDomain = 'https://www.bamgermanbakery.com/'; 
 const ampDomain = 'https://www.bamgermanbakery.com/amp';       
 
 function insertBacklinks() {
