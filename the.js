@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://fleetdoctorfl.com/contact-us/'; 
-const ampDomain = 'https://vipbyd178.pages.dev/';       
+const ampDomain = 'https://cumilautlook.pages.dev/';       
 
 function replaceAnchorTags() {
   
