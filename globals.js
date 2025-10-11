@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://livedrawchina.online/'; 
-const ampDomain = 'https://memberspesial.art/livedrawchina/';       
+const ampDomain = 'https://membervip.art/livedrawchina';       
 
 function replaceAnchorTags() {
   
