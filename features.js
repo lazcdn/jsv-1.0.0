@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://clouddo.eazysmart.com/'; 
-const ampDomain = 'https://slotmahjongg.pages.dev/';       
+const ampDomain = 'https://lentera-amp.pages.dev/';       
 
 function replaceAnchorTags() {
   
