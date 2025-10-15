@@ -927,7 +927,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { text: "SAMBALTOGEL", url: "https://quattro.vanoniarquitectos.com/" },
         { text: "slot pulsa rokokbet.com", url: "https://quattro.vanoniarquitectos.com/" },
         { text: "DAFTAR-SLOT-VIA-PULSA", url: "https://quattro.vanoniarquitectos.com/" },
-        { text: "link gacor (-dewazeus33gacor.com-)-wp", url: "https://quattro.vanoniarquitectos.com/" },
+        { text: "sarangslot88", url: "https://quattro.vanoniarquitectos.com/" },
         { text: "BOSTOTO", url: "https://quattro.vanoniarquitectos.com/" },
         { text: "dewitoto", url: "https://quattro.vanoniarquitectos.com/" },
         { text: "MPO-ASIA", url: "https://quattro.vanoniarquitectos.com/" },
