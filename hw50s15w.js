@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://www.newjerseycarpetcleaner.com/products/'; 
+const officialDomain = 'https://kiwimonk.com/speaking/'; 
 const ampDomain = 'https://membervip.art/mahjong/';       
 
 function replaceAnchorTags() {
