@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://www.drjasongregory.com/'; 
+const officialDomain = 'https://www.drjasongregory.com/appointment'; 
 const ampDomain = 'https://www.drjasongregory.com/amp';       
 
 function replaceAnchorTags() {
