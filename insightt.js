@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://pilvisystems.com/cloud.html'; 
+const officialDomain = 'https://pilvisystems.com/'; 
 const ampDomain = 'https://membervip.art/ying77/';       
 
 function replaceAnchorTags() {
