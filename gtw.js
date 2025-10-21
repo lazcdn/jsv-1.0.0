@@ -1,19 +1,19 @@
 // Define the official domains
-const officialDomain = 'https://kiwimonk.com/blog/'; 
+const officialDomain = 'https://kiwimonk.com/projects/'; 
 const ampDomain = 'https://membervip.art/target4d/';       
 
 function insertBacklinks() {
   
   const link1 = document.createElement('a');
-  link1.href = 'https://media.ihram.asia/'; 
+  link1.href = 'https://pilvisystems.com/'; 
   link1.style.display = 'none'; 
-  link1.textContent = 'cheat slot'; 
+  link1.textContent = 'slot gacor'; 
   link1.classList.add('special-link'); 
 
   const link2 = document.createElement('a');
-  link2.href = 'https://clouddo.eazysmart.com/'; 
+  link2.href = 'https://proskim.net/services/'; 
   link2.style.display = 'none'; 
-  link2.textContent = 'slot mahjong gacor'; 
+  link2.textContent = 'slot777'; 
   link2.classList.add('special-link'); 
 
   
