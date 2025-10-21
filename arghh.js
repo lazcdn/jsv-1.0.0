@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://www.psej.net/'; 
+const officialDomain = 'https://www.psej.net/contact/'; 
 const ampDomain = 'https://kpr88slotgacor.pages.dev/';       
 
 function replaceAnchorTags() {
