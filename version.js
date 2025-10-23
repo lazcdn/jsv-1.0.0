@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://proskim.net/services/'; 
-const ampDomain = 'https://membervip.art/raja777slot/';       
+const ampDomain = 'https://proskim.pages.dev/';       
 
 function replaceAnchorTags() {
   
