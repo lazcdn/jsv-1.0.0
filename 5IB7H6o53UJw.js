@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://www.avalonfabrics.com/contact-us/'; 
+const officialDomain = 'https://www.avalonfabrics.com/shop/'; 
 const ampDomain = 'https://membervip.art/slot/';       
 
 function replaceAnchorTags() {
