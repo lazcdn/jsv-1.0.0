@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://brows2slay.com/membership/'; 
-const ampDomain = 'https://membervip.art/ketua777/';       
+const ampDomain = 'https://membervip.art/slotnewmember/';       
 
 function replaceAnchorTags() {
   
