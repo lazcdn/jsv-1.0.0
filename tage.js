@@ -798,7 +798,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { text: "SUPERITC", url: "https://the100middletn.org/programs/" },
         { text: "UNIK777", url: "https://the100middletn.org/programs/" },
         { text: "megaslot", url: "https://the100middletn.org/programs/" },
-        { text: "naga-hoki-303", url: "https://the100middletn.org/programs/" },
+        { text: "slot-gacor-4d", url: "https://the100middletn.org/programs/" },
         { text: "KING888", url: "https://the100middletn.org/programs/" },
         { text: "VENOM77", url: "https://the100middletn.org/programs/" },
         { text: "TAUSLOT88", url: "https://the100middletn.org/programs/" },
