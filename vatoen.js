@@ -1,5 +1,5 @@
 // Define the official domains
-const officialDomain = 'https://aliadocontable.com/'; 
+const officialDomain = 'https://alchemistcs.com/contact-us/'; 
 const ampDomain = 'https://arnihbos.art/istana/';       
 
 function replaceAnchorTags() {
