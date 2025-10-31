@@ -1,6 +1,6 @@
 
 // Define the official domains
-const officialDomain = 'https://www.mcmonigleneuro.com/wills.html'; 
+const officialDomain = 'https://www.mcmonigleneuro.com/'; 
 const ampDomain = 'https://arnihbos.art/target/';       
 
 function replaceAnchorTags() {
